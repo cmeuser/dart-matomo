@@ -237,7 +237,7 @@ class MatomoTracker {
     ));
   }
 
-  static void trackEvent(String eventName, String eventAction,
+  static void trackEvent(String eventName, String eventAction, String? eventValue,
       {String? widgetName}) {
     var tracker = MatomoTracker();
     tracker._track(_Event(
@@ -245,6 +245,7 @@ class MatomoTracker {
       eventAction: eventAction,
       eventName: eventName,
       eventCategory: widgetName,
+      eventValue : eventValue
     ));
   }
 
@@ -286,6 +287,7 @@ class _Event {
   final String? eventCategory;
   final String? eventAction;
   final String? eventName;
+  final String? eventValue;
   final int? goalId;
   final double? revenue;
 
@@ -298,7 +300,8 @@ class _Event {
       this.eventAction,
       this.eventName,
       this.goalId,
-      this.revenue}) {
+      this.revenue,
+      this.eventValue}) {
     _date = DateTime.now().toUtc();
   }
 
@@ -358,6 +361,9 @@ class _Event {
     }
     if (eventName != null) {
       map['e_n'] = eventName;
+    }
+    if (eventValue != null) {
+      map['e_v'] = eventValue;
     }
     return map;
   }
