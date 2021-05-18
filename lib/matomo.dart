@@ -212,7 +212,8 @@ class MatomoTracker {
   }
 
   static void trackScreen(BuildContext context, String eventName) {
-    var widgetName = context.widget.toStringShort();
+    //var widgetName = context.widget.toStringShort();
+    var widgetName = eventName;
     trackScreenWithName(widgetName, eventName);
   }
 
