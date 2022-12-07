@@ -1,0 +1,6 @@
+# Optional
+repository: package
+ 
+package:
+  id: dart-matomo
+  repository: https://github.com/cmeuser/dart-matomo
